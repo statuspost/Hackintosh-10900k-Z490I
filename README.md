@@ -41,4 +41,12 @@ I highly encourage you to read the full OpenCore Install guide before you even b
      As I understand it, to get these features to work, you NEED a native Mac Wifi/Bluetooth card.
      
 ## Special Changes & Troubleshooting
-My first issue arose when trying to install macOS and it was related to USB (forgot the error code specifically) but it was fixed by switching <XhciPortLimit> from True to False. This information is presented in the OpenCore guide but I missed it during the install. My install proceeded just fine from then on.
+My first issue arose when trying to install macOS where I would get repeated kernal panic texts mentioning "USB" and something else. This was fixed by setting ```XhciPortLimit False```.
+
+After the fresh install and getting past the setup screen, I had constant system freezes/crashes direclty seconds after signing in. It didn't give me any kernal panic text so this error was hard to daignose. Eventually, I noticed that the machine did not have issues when the ethernet was unplugged. I stumbled upon a post where an indivdual had my exact same problem and it was fixed by setting the Ethernet ```device-id F2158680```. Also, I had to change the ethernet PciRoot pathway to ```PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)```.
+
+On every reboot after shutting down, my BIOS would post in safe mode which required F1 to be pressed. Simple fix was found on YouTube where I set ```DisableRtcChecksum True```.
+
+Bluetooth wasn't working on first startup. My solution was found on an OpenIntelWireless post where adding IntelBluetoothFirmware.kext and BlueToolFixup.kext resoloved the problem. The order of injection matters; use ProperTree as it will automatically order them correctly. Do not add the injector kext like in previous macOS versions. 
+
+I was having issues with sound outputs as well. I found a similar post on GitHub where setting ```boot-args alcid=3``` gave proper outputs.
