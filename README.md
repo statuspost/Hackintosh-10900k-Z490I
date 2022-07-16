@@ -1,9 +1,9 @@
-# Hackintosh|10900k-Z490I
+# Hackintosh | 10900k-Z490I
 This repository is about my personal journey when creating my first Hackintosh build on my gaming machine. The machine is dual booting macOS Monterey 12.4 & Windows 11. First off, I'd like to thank the awesome Hackintosh community and the creators/devs for the loads of help with this project.
 In this repo, I'll be explaining the useful tidbits of information I have found that made my system work the way it does as well as include the software I used.
 
 ## Preface
-I highly encourage you to read the full OpenCore Install guide before you even begin anything. It has so much information and it will really save you so much time when you are actually starting the install. 
+I highly encourage you to read the full OpenCore Install guide before you even begin anything. It has so much information and it will really save you so much time when you are actually starting the install. Note: This EFI contains settings for OpenCanopy for a nice and clean launcher. Change this as you see fit.
 
 ## Hardware
 * CPU: Intel i9 10900k
@@ -49,4 +49,4 @@ On every reboot after shutting down, my BIOS would post in safe mode which requi
 
 Bluetooth wasn't working on first startup. My solution was found on an OpenIntelWireless post where adding IntelBluetoothFirmware.kext and BlueToolFixup.kext resoloved the problem. The order of injection matters; use ProperTree as it will automatically order them correctly. Do not add the injector kext like in previous macOS versions. 
 
-I was having issues with sound outputs as well. I found a similar post on GitHub where setting ```boot-args alcid=3``` gave proper outputs.
+I was having issues with sound outputs as well. I found a similar post on GitHub where setting ```boot-args alcid=7``` gave proper sound outputs. I later swapped this bootarg with the actual device properties using ```PciRoot(0x0)/Pci(0x1f,0x3) layout-id 7```.
