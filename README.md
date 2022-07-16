@@ -3,7 +3,8 @@ This repository is about my personal journey when creating my first Hackintosh b
 In this repo, I'll be explaining the useful tidbits of information I have found that made my system work the way it does as well as include the software I used.
 
 ## Preface
-I highly encourage you to read the full OpenCore Install guide before you even begin anything. It has so much information and it will really save you so much time when you are actually starting the install. Note: This EFI contains settings for OpenCanopy for a nice and clean launcher. Change this as you see fit.
+I highly encourage you to read the full OpenCore Install guide before you even begin anything. It has so much information and it will really save you so much time when you are actually starting the install.
+Note: This EFI contains settings for OpenCanopy for a nice and clean launcher. Change this as you see fit.
 
 ## Hardware
 * CPU: Intel i9 10900k
